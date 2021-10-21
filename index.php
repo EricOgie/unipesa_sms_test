@@ -6,6 +6,10 @@ include_once 'Router.php';
 
 $router = new Router(new Request);
 
+$router->get('/', function ($request) {
+    return "WE ARE LIVE";
+});
+
 $router->post('/send-sms', function ($request) {
 
     $input = $request->getBody();
