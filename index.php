@@ -6,10 +6,6 @@ include_once 'Router.php';
 
 $router = new Router(new Request);
 
-$router->get('/', function () {
-    return 'HELLO NOW';
-});
-
 $router->post('/send-sms', function ($request) {
 
     $input = $request->getBody();
@@ -40,7 +36,6 @@ $router->post('/send-sms', function ($request) {
         ]
     ];
 
-    // return json_encode($payload);
 
     $headerData = [
         "Content-Type: application/json", "Accept: application/json", "Authorization: wu2gnmtaT_iHe_a-9GJOdg=="
@@ -51,17 +46,9 @@ $router->post('/send-sms', function ($request) {
     curl_setopt($curl, CURLOPT_POST, 1);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headerData);
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($payload));
-    // curl_setopt($curl, CURL_RETURNTRANSFER, true);
+
 
     $result = curl_exec($curl);
     curl_close($curl);
     return $result;
-
-
-
-
-
-
-
-    return  $phoneWithCode;
 });
