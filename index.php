@@ -28,18 +28,12 @@ $router->post('/send-sms', function ($request) {
     $payload = [
         'messages' => [
             [
-                "channel" => "whatsapp",
-                "to" => $phoneWithCode,
-                "content" => "Unipesa Test-1234"
-            ],
-            [
                 "channel" => "sms",
                 "to" => $phoneWithCode,
                 "content" => "Unipesa Test-1234"
             ]
         ]
     ];
-
 
     $headerData = [
         "Content-Type: application/json", "Accept: application/json", "Authorization: wu2gnmtaT_iHe_a-9GJOdg=="
