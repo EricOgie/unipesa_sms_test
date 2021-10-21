@@ -6,9 +6,6 @@ include_once 'Router.php';
 
 $router = new Router(new Request);
 
-$router->get('/', function ($request) {
-    return "WE ARE LIVE";
-});
 
 $router->post('/send-sms', function ($request) {
 
@@ -49,4 +46,8 @@ $router->post('/send-sms', function ($request) {
     $result = curl_exec($curl);
     curl_close($curl);
     return $result;
+});
+
+$router->get('/', function ($request) {
+    return "WE ARE LIVE";
 });
