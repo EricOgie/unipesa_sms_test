@@ -11,7 +11,6 @@ $router->post('/send-sms', function ($request) {
 
     $input = $request->getBody();
 
-
     if (($input['phone'][0] !== '0')) {
         http_response_code(422);
         return json_encode([
@@ -46,8 +45,4 @@ $router->post('/send-sms', function ($request) {
     $result = curl_exec($curl);
     curl_close($curl);
     return $result;
-});
-
-$router->get('/', function ($request) {
-    return "WE ARE LIVE";
 });
